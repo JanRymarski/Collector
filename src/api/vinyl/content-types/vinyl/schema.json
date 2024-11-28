@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vinyls",
+  "info": {
+    "singularName": "vinyl",
+    "pluralName": "vinyls",
+    "displayName": "Vinyl"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "Cover": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "genres": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::genre.genre",
+      "mappedBy": "vinyls"
+    }
+  }
+}
